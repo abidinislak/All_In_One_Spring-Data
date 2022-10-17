@@ -25,11 +25,6 @@ public class BookRepositoryTest {
 
     public void testBookSAve(){
 
-       Book savebook=new Book("java");
-
-       repo.save(savebook);
-
-       assertThat(savebook.getId()).isGreaterThan(0);
 
 
 
