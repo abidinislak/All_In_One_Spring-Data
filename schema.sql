@@ -1,8 +1,9 @@
---INSERT INTO springData.book (name)
+-- ///////to use file, put it in resourse directory
+--INSERT INTO book (name)
 --VALUES ("asdasdas");
---INSERT INTO springData.book (name)
+--INSERT INTO book (name)
 --VALUES ("java");
---INSERT INTO springData.book (name)
+--INSERT INTO book (name)
 --VALUES ("c#");
---INSERT INTO springData.book (name)
+--INSERT INTO book (name)
 --VALUES ("python");
