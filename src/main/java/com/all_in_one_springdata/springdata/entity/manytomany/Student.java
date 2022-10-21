@@ -1,11 +1,22 @@
 package com.all_in_one_springdata.springdata.entity.manytomany;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
-public class Student
+@EntityListeners(AuditingEntityListener.class)
+public class
+Student
 {
 
 
@@ -24,6 +35,24 @@ public class Student
 
 	private Set<Course> courses=new HashSet<>();
 
+	@CreatedDate
+	private LocalDate createdDate;
+
+	public Set<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
+	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
 
 	public Student() {
 	}
