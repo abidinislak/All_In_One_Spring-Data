@@ -26,13 +26,13 @@ public class CourseRepositoryTest {
     @Test
     public void playwithCourse() {
 
-        emanager.persist(new Course("aaa", "aaa"));
-        emanager.persist(new Course("bb", "bbb"));
-        emanager.persist(new Course("ccc", "cdcd"));
-        emanager.persist(new Course("ddd", "ccc"));
-
-
-        repo.save(new Course("wda", "wqeqwe"));
+//        emanager.persist(new Course("aaa", "aaa"));
+//        emanager.persist(new Course("bb", "bbb"));
+//        emanager.persist(new Course("ccc", "cdcd"));
+//        emanager.persist(new Course("ddd", "ccc"));
+//
+//
+//        repo.save(new Course("wda", "wqeqwe"));
 
 
     }
