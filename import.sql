@@ -1,6 +1,6 @@
 -- ///////to use file, put it in resourse directory.. FOR H2 DATABASE USE THİS FİLE
-INSERT INTO BOOK  VALUES (123456789, 'SDSDFS');
-INSERT INTO BOOK  VALUES (21, 'JAVA');
-INSERT INTO BOOK  VALUES (456, 'SDSDFS');
-INSERT INTO BOOK  VALUES (1, 'C#');
+--INSERT INTO springdata.book	(name)  VALUES ( 'aab');
+--INSERT INTO springdata.book	 (name) VALUES ( 'bb');
+--INSERT INTO springdata.book	(name)  VALUES ( 'cc');
+--INSERT INTO springdata.book (name)	  VALUES ('dd');
 
