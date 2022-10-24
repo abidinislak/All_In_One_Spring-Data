@@ -6,15 +6,15 @@ import java.math.BigDecimal;
 
 @Entity
 
-public class PartTimeEmployeSingleTable extends EmployeSingleTable {
+public class PartTimeEmployeJoin extends EmployeJoin {
     private BigDecimal hourlyWage;
 
-    public PartTimeEmployeSingleTable() {
+    public PartTimeEmployeJoin() {
 
     }
 
 
-    public PartTimeEmployeSingleTable(String asdas, BigDecimal bigDecimal) {
+    public PartTimeEmployeJoin(String asdas, BigDecimal bigDecimal) {
 
 
         super(asdas);
