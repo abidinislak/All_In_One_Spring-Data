@@ -10,6 +10,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
@@ -33,7 +35,7 @@ public class TestStudentRpository
 
 	@Test
 	public void testStudentSave(){
-		Student saveStduent=new Student(    "name student","lanst namse test stduent");
+		Student saveStduent=new Student(    "bolu denmee son ","reposirtoy bug");
 
 
 
@@ -41,6 +43,54 @@ public class TestStudentRpository
 
 
 
+
+	}
+
+	@Test
+	public void testListStuduent(){
+		System.err.println("............................................");
+
+		System.out.println("..........");
+
+		List<Student> studentList=repo.findByName("bolu");
+		List<Student> studentList2=repo.findAll();
+
+		for (var student:studentList
+
+		     ) {
+
+			System.err.println(student.getLastname());
+
+		}
+
+
+
+
+
+	}
+
+	// Test native anmed query
+	@Test
+	public void testNativeNamedQuery(){
+
+		int countCustomByName=repo.findNameNative("ankara");
+
+
+		System.err.println("/////////////////");
+		System.err.println(countCustomByName);
+		System.err.println("////////////////");
+
+assertThat(countCustomByName).isGreaterThan(0);
+
+
+	}
+
+
+
+	@Test
+	public void testupdateStudemts(){
+		int test=repo.updateNameById("ankara",5);
+		assertThat(test).isGreaterThan(0);
 
 	}
 
