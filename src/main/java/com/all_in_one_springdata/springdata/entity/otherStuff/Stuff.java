@@ -1,6 +1,7 @@
 package com.all_in_one_springdata.springdata.entity.otherStuff;
 
 
+import com.all_in_one_springdata.springdata.entity.BaseEntity;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,8 +17,8 @@ import java.time.LocalDate;
 //Awseome of  spring data,,,, SOFT DELETE
 @SQLDelete(sql = "update stuff set is_deleted=true where id=?")
 @Where(clause = "is_deleted=false")
-public class Stuff {
- 
+public class Stuff extends BaseEntity {
+
 
     @Id
     @GeneratedValue
@@ -36,9 +37,31 @@ public class Stuff {
     @Column(insertable = false, updatable = true)
     private LocalDate updatedDate;
 
+    @Embedded
+    private Addressss adres;
 
+    @Enumerated
+    private StuffType type;
     private boolean isDeleted;
 
+    public Stuff() {
+    }
+
+    public Addressss getAdres() {
+        return adres;
+    }
+
+    public void setAdres(Addressss adres) {
+        this.adres = adres;
+    }
+
+    @PreRemove
+    private void preRemove() {
+
+
+        System.err.println("deleteidng");
+        this.isDeleted = true;
+    }
 
     public boolean isDeleted() {
         return isDeleted;

@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@NamedQueries(value = {
+        @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c")
+
+
+})
 public class Course {
 
     @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
@@ -22,6 +27,10 @@ public class Course {
     public Course(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
     }
 
     public void addStudent(Student student) {
