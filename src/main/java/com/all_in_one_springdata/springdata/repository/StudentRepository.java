@@ -8,32 +8,25 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import java.util.List;
 
-
-public interface StudentRepository extends JpaRepository<Student,Integer> {
-
-
+@Repository
+public interface StudentRepository extends JpaRepository<Student, Integer> {
 
 
-//	@Query("SELECT c FROM Student c WHERE c.name= ?1")
-	@Query(value = "SELECT id, lastname, name, created_date FROM springdata.student where name=:name",nativeQuery = true)
-	List<Student> findByName(String name);
+    //	@Query("SELECT c FROM Student c WHERE c.name= ?1")
+    @Query(value = "SELECT id, lastname, name, created_date FROM springdata.student where name=:name", nativeQuery = true)
+    List<Student> findByName(String name);
 
 
+    @Transactional
+    @Modifying
+    @Query("UPDATE   Student s SET s.name=?1 where s.id > ?2")
+    int updateNameById(@Param("name") String name, int id);
 
-	@Transactional
-	@Modifying
-	@Query("UPDATE   Student s SET s.name=?1 where s.id > ?2")
-	int updateNameById(@Param("name") String name, int id);
 
-
-	@Query(nativeQuery = true)
-	int findNameNative(@Param("name") String name);
+    @Query(nativeQuery = true)
+    int findNameNative(@Param("name") String name);
 
 
 }

@@ -38,4 +38,26 @@ public class StudentRepositoryTest {
 
 
     }
+
+    //    caching
+    @Test
+    public void cachingPlay() {
+
+
+        Student tempsave = new Student("dfedf", "aqsd");
+
+        repo.save(tempsave);
+
+        Student temp = repo.findById(15).get();
+
+        System.err.println(temp.getName());
+        System.err.println("...........");
+
+        Student temp2 = repo.findById(15).get();
+
+        System.err.println(temp.getName());
+        System.err.println("........2222222222222222222222......");
+
+
+    }
 }
