@@ -1,10 +1,8 @@
 package com.all_in_one_springdata.springdata.entity.otherStuff;
 
 
-import com.all_in_one_springdata.springdata.entity.BaseEntity;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -20,18 +18,10 @@ import java.time.LocalDate;
 public class Stuff extends BaseEntity {
 
 
-    @Id
-    @GeneratedValue
-    private int id;
-
-
     private String name;
 
     private String category;
 
-    @CreatedDate
-    @Column(insertable = true, updatable = false)
-    private LocalDate createdDate;
 
     @LastModifiedDate
     @Column(insertable = false, updatable = true)
@@ -71,13 +61,6 @@ public class Stuff extends BaseEntity {
         isDeleted = deleted;
     }
 
-    public LocalDate getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
-    }
 
     public LocalDate getUpdatedDate() {
         return updatedDate;
@@ -87,13 +70,6 @@ public class Stuff extends BaseEntity {
         this.updatedDate = updatedDate;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
